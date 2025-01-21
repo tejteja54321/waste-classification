@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <!--- basic page needs ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Waste Classification</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS ================================================== -->
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- favicons ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* Add background image to body */
+        body {
+            background-image: url('../static/images/glass.jpg'); /* Adjust the path as necessary */
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center center; /* Centers the image */
+            background-attachment: fixed; /* Keeps the background fixed when scrolling */
+            color: #fff; /* Change text color if needed for better contrast */
+            font-family: Arial, sans-serif; /* Adjust font as needed */
+        }
+
+        /* Modal overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.4s;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            max-width: 80%;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Close button */
+        .close {
+            color: #333;
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Modal text and headings */
+        .modal-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2b8a3e; /* Success green */
+        }
+
+        .modal-content h2.error {
+            color: #d9534f; /* Error red */
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Styling for Prediction Result Section */
+#about {
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    padding: 30px 20px;
+    border-radius: 12px;
+    max-width: 800px; /* Limit the width for better layout */
+    margin: 80px auto; /* Center the section horizontally */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading Styles */
+#about h2 {
+    font-size: 2.5rem;
+    color: #f4a261; /* Accent color */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#about h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e9c46a; /* Accent color */
+}
+
+/* Image Styling */
+#about img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Prediction Text Styling */
+#about p {
+    font-size: 1.2rem;
+    color: #333; /* Dark text color for contrast */
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #about {
+        padding: 20px 15px;
+        margin: 10px auto;
+    }
+
+    #about h2 {
+        font-size: 2rem;
+    }
+
+    #about h3 {
+        font-size: 1.2rem;
+    }
+
+    #about p {
+        font-size: 1rem;
+    }
+
+    #about img {
+        width: 250px; /* Adjust image size for smaller screens */
+    }
+}
+
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!-- preloader ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
+
+    <!-- page wrap ================================================== -->
+    <div id="page" class="s-pagewrap">
+
+        <!-- # site header ================================================== -->
+        <header class="s-header">
+
+            <div class="row s-header__inner">
+
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html" style="font-size: 3rem;color:white;;font-weight: 10px;">
+                            WasteClassification
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="s-header__nav">
+                    <ul>
+                        <li><a href="/prediction" style="color: white;">Prediction</a></li>
+                        <li><a href="/performance" style="color: white;">Performance</a></li>
+                        <li><a href="/charts" style="color: white;">Charts</a></li>
+                        <li><a href="/logout" style="color: white;">Logout</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </header> <!-- end s-header -->
+<br><br>
+        <!-- # site-content ================================================== -->
+        <section id="content" class="s-content">
+
+            <div>
+                <section id="about" >
+                    <div>
+                        <h2>Prediction Result</h2>
+                        <div>
+                            <h3>Uploaded Image:</h3>
+                            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" style="width: 300px; height: auto;">
+                        </div>
+                        <div>
+                            <h3>Prediction:</h3>
+                            <p style="color: white;font-size: 3rem;">{{ prediction }}</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </section> <!-- end s-content -->
+
+    </div> <!-- end page -->
+
+    <!-- JavaScript ================================================== -->
+    
+    </script>
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

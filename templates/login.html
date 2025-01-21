@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+
+    <!--- basic page needs ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Waste Classification</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS ================================================== -->
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- favicons ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* Add background image to body */
+        body {
+            background-image: url('../static/images/img7.jpg'); /* Adjust the path as necessary */
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center center; /* Centers the image */
+            background-attachment: fixed; /* Keeps the background fixed when scrolling */
+            color: #fff; /* Change text color if needed for better contrast */
+            font-family: Arial, sans-serif; /* Adjust font as needed */
+        }
+
+        /* Modal overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.4s;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            max-width: 80%;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Close button */
+        .close {
+            color: #333;
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Modal text and headings */
+        .modal-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2b8a3e; /* Success green */
+        }
+
+        .modal-content h2.error {
+            color: #d9534f; /* Error red */
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="top">
+
+    <!-- preloader ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
+
+    <!-- page wrap ================================================== -->
+    <div id="page" class="s-pagewrap">
+
+        <!-- # site header ================================================== -->
+        <header class="s-header">
+
+            <div class="row s-header__inner">
+
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html" style="font-size: 3rem;color:black;font-weight: 10px;">
+                            WasteClassification
+                        </a>
+                    </div>
+                </div>
+
+                <nav class="s-header__nav">
+                    <ul>
+                        <li><a href="/" style="color:black">Home</a></li>
+                        <li class="current"><a href="/login" style="color: black;">Login</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </header> <!-- end s-header -->
+<br><br>
+        <!-- # site-content ================================================== -->
+        <section id="content" class="s-content">
+
+            <section id="pricing" class="s-pricing target-section">
+                <div class="row s-pricing__content">
+                    <div class="column lg-4 md-12 s-pricing__header">
+                        <h3 class="h2"></h3>
+                    </div>
+
+                    <div class="column lg-8 md-12 s-pricing__plans">
+                        <div class="row plans block-lg-one-half block-tab-whole">
+                            <div class="column item-plan item-plan--popular">
+                                <form id="loginForm" onsubmit="validateLogin(event)">
+                                    <div class="item-plan__top-part">
+                                        <p class="item-plan__price" style="color: green;">LogIn</p>
+                                        <hr>
+                                    </div>
+
+                                    <input type="text" required placeholder="UserName" id="username" class="u-fullwidth">
+                                    <br>
+                                    <input type="password" required placeholder="Password" id="password" class="u-fullwidth">
+                                    <br><br>
+
+                                    <input type="submit" class="btn btn--primary u-fullwidth" value="Get Started" style="background-color: white; color: green;">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success and Error Modals -->
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('successModal')">&times;</span>
+                        <h2>🎉 Success!</h2>
+                        <p>Login Successful! Redirecting to the predict page...</p>
+                    </div>
+                </div>
+
+                <div id="errorModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('errorModal')">&times;</span>
+                        <h2>⚠️ Error</h2>
+                        <p>Invalid username or password. Please try again.</p>
+                    </div>
+                </div>
+            </section>
+
+        </section> <!-- end s-content -->
+
+    </div> <!-- end page -->
+
+    <!-- JavaScript ================================================== -->
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "admin") {
+                showModal("successModal");
+                setTimeout(() => {
+                    window.location.href = "/prediction";
+                }, 1500);
+            } else {
+                showModal("errorModal");
+            }
+        }
+
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

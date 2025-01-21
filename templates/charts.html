@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Waste Classification</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+<style>
+    #intro {
+    background-image: url('../static/images/img2.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+     /* Limits the height to 30% of the viewport height */
+    width: 100%; /* Ensures the section spans the full width of the screen */
+}
+</style>
+</head>
+
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+        </div>
+    </div>
+
+
+    <!-- page wrap
+    ================================================== -->
+    <div id="page" class="s-pagewrap">
+
+
+        <!-- # site header 
+        ================================================== -->
+        <header class="s-header">
+
+            <div class="row s-header__inner">
+
+                <div class="s-header__block">
+                    <div class="s-header__logo">
+                        <a class="logo" href="index.html" style="font-size: 3rem;color:white">
+                            WasteClassification
+                        </a>
+                    </div>
+
+                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+                </div> 
+                <nav class="s-header__nav">
+                    <ul>
+                        <li class="current"><a href="/prediction" >Prediction</a></li>
+                        <li class="current"><a href="/performance" >Performance</a></li>
+                        <li class="current"><a href="/charts" >Charts</a></li>
+                        <li class="current"><a href="/logout" >Logout</a></li>
+
+                        
+                    </ul>
+                </nav>
+
+                
+
+            </div> <!-- end s-header__inner -->
+
+        </header> <!-- end s-header -->
+
+
+        <!-- # site-content
+        ================================================== -->
+        <section id="content" class="s-content">
+
+
+            <section id="intro" class="s-intro target-section" style="height: 10vh;">
+                <h1 style="text-align: center;margin-top: 20%;color: white;">Charts Page</h1>
+            </section>
+
+
+            <!-- about
+            ----------------------------------------------- -->
+            <section id="about" class="s-about target-section">
+
+
+            
+                
+                <div class="s-about__info">
+
+                    <div class="row section-header" data-num="01">
+                        <div class="column lg-6 stack-on-1000 title-block">
+                            <h2 class="title text-display-1">Dataset Plots.</h2>
+                        </div>
+                        <div class="column lg-6 stack-on-1000 desc-block">
+                            <p class="desc lead">
+                            
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row s-about__info-slider-block">
+                        <div class="column lg-12">
+
+                            <div class="swiper-container s-about__info-slider">
+                                <div class="swiper-wrapper">
+                            
+                                    <!-- Slide 1 -->
+                                    <div class="s-about__info-slide swiper-slide">
+                                        <h4 class="h5">Train Data.</h4>
+                                        <img src="../static/images/output.png" alt="Smart Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                    </div> <!-- end s-about__info-slide -->
+                            
+                                    <!-- Slide 2 -->
+                                    <div class="s-about__info-slide swiper-slide">
+                                        <h4 class="h5">Validation Data.</h4>
+                                        <img src="../static/images/output1.png" alt="User-Friendly Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                    </div> <!-- end s-about__info-slide -->
+                            
+                                    <!-- Slide 3 -->
+                                    <div class="s-about__info-slide swiper-slide">
+                                        <h4 class="h5">Test Data.</h4>
+                                        <img src="../static/images/output2.png" alt="Powerful Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                    </div> <!-- end s-about__info-slide -->
+
+                                    
+
+                            
+                                </div> <!-- swiper-wrapper -->
+                            </div>
+                            <!-- end swiper-container -->
+
+                        </div>
+                    </div> <!-- end s-about__info-slider-block -->
+
+                </div> 
+
+
+                
+
+
+                
+                <div class="s-about__howto">
+
+                    <div class="row section-header" data-num="02">
+                        <div class="column lg-12 title-block">
+                            <h2 class="title text-display-1">Confusion Matrix.</h2>
+                        </div>
+                    </div>
+
+                    <div class="row s-about__howto-content">
+
+                        <div class="column s-about__howto-process-block">
+
+                            
+
+                                <div class="s-about__info-slide swiper-slide">
+                                    <h4 class="h5">Train Data.</h4>
+                                    <img src="../static/images/output5.png" alt="Smart Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                </div>
+
+                            
+
+                                
+                            </div> 
+
+                        </div>
+
+                        <div class="column s-about__howto-screens-block">
+
+                        
+
+                        </div>
+
+                    </div>
+        
+                    <div class="s-about__info">
+
+                        <div class="row section-header" data-num="03">
+                            <div class="column lg-6 stack-on-1000 title-block">
+                                <h2 class="title text-display-1">Train Vs Validation</h2>
+                            </div>
+                            <div class="column lg-6 stack-on-1000 desc-block">
+                                <p class="desc lead">
+                                
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="row s-about__info-slider-block">
+                            <div class="column lg-12">
+    
+                                <div class="swiper-container s-about__info-slider">
+                                    <div class="swiper-wrapper">
+                                
+                                        <!-- Slide 1 -->
+                                        <div class="s-about__info-slide swiper-slide">
+                                            <h4 class="h5">Train vs Validation Accuracy.</h4>
+                                            <img src="../static/images/output6.png" alt="Smart Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                        </div> <!-- end s-about__info-slide -->
+                                
+                                        <!-- Slide 2 -->
+                                        <div class="s-about__info-slide swiper-slide">
+                                            <h4 class="h5">Train vs Validation Loss.</h4>
+                                            <img src="../static/images/output6.png" alt="User-Friendly Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                        </div> <!-- end s-about__info-slide -->
+                                
+                                    
+    
+                                
+                                    </div> <!-- swiper-wrapper -->
+                                </div>
+                                <!-- end swiper-container -->
+    
+                            </div>
+                        </div> <!-- end s-about__info-slider-block -->
+    
+                    </div> 
+
+                    <div class="s-about__info">
+
+                        <div class="row section-header" data-num="04">
+                            <div class="column lg-6 stack-on-1000 title-block">
+                                <h2 class="title text-display-1">Precision Recall</h2>
+                            </div>
+                            <div class="column lg-6 stack-on-1000 desc-block">
+                                <p class="desc lead">
+                                
+                                </p>
+                            </div>
+                        </div>
+    
+                        <div class="row s-about__info-slider-block">
+                            <div class="column lg-12">
+    
+                                <div class="swiper-container s-about__info-slider">
+                                    <div class="swiper-wrapper">
+                                
+                                        <!-- Slide 1 -->
+                                        <div class="s-about__info-slide swiper-slide">
+                                            <h4 class="h5">Precision Recall Curve.</h4>
+                                            <img src="../static/images/output3.png" alt="Smart Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                        </div> <!-- end s-about__info-slide -->
+                                
+                                        <!-- Slide 2 -->
+                                        <div class="s-about__info-slide swiper-slide">
+                                            <h4 class="h5">ROC Curve.</h4>
+                                            <img src="../static/images/output4.png" alt="User-Friendly Feature" style="width: 100%; height: auto; border-radius: 10px;">
+                                        </div> <!-- end s-about__info-slide -->
+                                
+                                    
+    
+                                
+                                    </div> <!-- swiper-wrapper -->
+                                </div>
+                                <!-- end swiper-container -->
+    
+                            </div>
+                        </div> <!-- end s-about__info-slider-block -->
+    
+                    </div> 
+                
+                
+                
+
+            </section> 
+
+
+        
+        
+        
+
+
+        </section> <!-- end s-content -->
+
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</body>
+</html>
